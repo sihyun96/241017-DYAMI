@@ -24,6 +24,9 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://sihyun96.github.io/241018-DYAMI/images/logo.png">
 <meta property="og:description" content="241018_DYAMI_이시현">
+
+<!-- 카카오맵 -->
+<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=0625d0e1a0c4e441e1f7b64545d10497"></script>
 </head>
 
 <body>
@@ -213,7 +216,7 @@
         <h3>office</h3>
         <h3>factory</h3>
       </div>
-      <div class="location-map">
+      <div class="location-map" id="locationmap">
       </div>
       <ul class="location-office-address">
         <li><strong>address</strong>795 Folsom Ave, Suite 600 San Francisco</li>
@@ -263,5 +266,25 @@
       Terms of Use / Privacy Policy</p>
     </section>
   </footer>
+  <!-- 카카오맵 -->
+  <script>
+    // var 보다는 const로 바꿔주는게 좋음!
+		const mapContainer = document.getElementById('locationmap'), // 지도를 표시할 div 
+		    mapOption = {
+		        center: new kakao.maps.LatLng(37.268191, 127.000284), // 지도의 중심좌표
+		        level: 4, // 지도의 확대 레벨
+		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+		    }; 
+
+		// 지도를 생성한다 
+		const map = new kakao.maps.Map(mapContainer, mapOption); 
+
+		// 지도에 마커를 생성하고 표시한다
+		const marker = new kakao.maps.Marker({
+		    position: new kakao.maps.LatLng(37.268191, 127.000284), // 마커의 좌표
+		    map: map // 마커를 표시할 지도 객체
+		});
+
+	</script>
 </body>
 </html>
